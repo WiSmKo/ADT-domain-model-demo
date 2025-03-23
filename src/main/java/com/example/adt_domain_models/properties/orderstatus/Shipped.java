@@ -1,4 +1,4 @@
-package com.example.adt_domain_models.orderstatus;
+package com.example.adt_domain_models.properties.orderstatus;
 
 import java.time.LocalDateTime;
 

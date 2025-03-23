@@ -1,15 +1,15 @@
-package com.example.adt_domain_models.order;
+package com.example.adt_domain_models.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.example.adt_domain_models.customer.Customer;
-import com.example.adt_domain_models.orderstatus.Canceled;
-import com.example.adt_domain_models.orderstatus.Delivered;
-import com.example.adt_domain_models.orderstatus.OrderStatus;
-import com.example.adt_domain_models.orderstatus.Pending;
-import com.example.adt_domain_models.orderstatus.Shipped;
-import com.example.adt_domain_models.paymentmethod.PaymentMethod;
+import com.example.adt_domain_models.properties.customer.Customer;
+import com.example.adt_domain_models.properties.orderstatus.Canceled;
+import com.example.adt_domain_models.properties.orderstatus.Delivered;
+import com.example.adt_domain_models.properties.orderstatus.OrderStatus;
+import com.example.adt_domain_models.properties.orderstatus.Pending;
+import com.example.adt_domain_models.properties.orderstatus.Shipped;
+import com.example.adt_domain_models.properties.paymentmethod.PaymentMethod;
 
 public record Order(String orderId,Customer customer, List<String> items, PaymentMethod paymentMethod, OrderStatus status) {
 
@@ -19,7 +19,7 @@ public record Order(String orderId,Customer customer, List<String> items, Paymen
         }
     }
 
-    public Order updateStatus(OrderStatus newStatus) {
+    private Order updateStatus(OrderStatus newStatus) {
         return new Order(orderId, customer, items, paymentMethod, newStatus);
     }
 
